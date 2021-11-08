@@ -1,0 +1,10 @@
+{
+    "mail_handler":{
+        "mailhost":"mail.company.local",
+        "fromaddr":"fromaddr@company.local",
+        "toaddrs":["toaddrs@company.local"]
+        },
+    "splunk_url":"https://splunk.local:8089",
+    "api_token":"splunk_user_token"
+
+}

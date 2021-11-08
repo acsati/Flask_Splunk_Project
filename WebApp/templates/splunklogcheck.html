@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplunkLogCheck</title>
+    <link rel="shortcut icon" href="/static/iom_favicon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    {% include "includes/navbar.html" %}
+    <br><br>
+    {% include "includes/messages.html" %}
+    <div class="row justify-content-center align-items-center">
+        <h3>Splunk Log Check</h3>
+    </div>
+    <hr>
+    <div class="toast fade show" style="position: absolute; top: 2%; right: 2%;">
+        <br>
+        <div class="toast-header">
+          <svg class="bd-placeholder-img rounded mr-2" width="30" height="20" focusable="false" role="img"><rect fill="#007aff" width="100%" height="100%"></rect></svg>
+          <strong class="mr-auto">Uyarı!!!</strong>
+          
+        </div>
+        <div class="toast-body">
+          Winevent sorgulayacaksan <span STYLE="text-decoration:underline"><b>Hostname</b></span> seçmelisin. 
+        </div>
+      </div>
+    <div class="container">        
+            {% from "includes/formhelpers.html" import render_field %}
+        <form method="POST">
+            <div class="row justify-content-center align-items-center">
+                <select class="form-control-sm" name="log_type">
+                    <option value="Internal Log">Internal Log</option>
+                    <option value="Winevent Log">Winevent Log</option>
+                </select>
+                <select class="form-control-sm" name="source_type">
+                    <option value="Source IP">Source IP</option>
+                    <option value="Hostname">Hostname</option>
+                </select>
+            </div>
+            <br>
+            {{ render_field(form.content, class="form-control", placeholder="Source") }}
+            <div class="row justify-content-center align-items-center">
+                <button type="submit" class="btn btn-primary">Sorgula</button>
+            </div>
+            
+        </form>
+
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

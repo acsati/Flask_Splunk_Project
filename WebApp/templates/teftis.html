@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teftis</title>
+    <link rel="shortcut icon" href="/static/iom_favicon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" rel="stylesheet"/>
+</head>
+<body>
+    {% include "includes/navbar.html" %}
+    <br><br>
+    {% include "includes/messages.html" %}
+    {% from "includes/formhelpers.html" import render_field %}
+    <div class="row justify-content-center align-items-center">
+        <h3>Teftis</h3>
+    </div>
+    <hr>
+    <form method="post">
+        <div class="container">
+            {{ render_field(form.file_name, class="form-control", placeholder="File Name") }}
+            {{ render_field(form.spl_query, class="form-control", placeholder="SPL Query") }}
+            <label for="Dates"><b>Dates</b></label>
+            <input type="text" class="form-control date" placeholder="Dates" value="Dates" name="dates">
+            <br>
+            <button type="submit" class="btn btn-primary">Sorgula</button>
+            <script>$('.date').datepicker({
+                multidate: true,
+                format: 'mm/dd/yyyy'
+            });</script>
+        </div>
+    </form>
+</body>
+</html>
