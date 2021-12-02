@@ -42,7 +42,7 @@ def check_metricslog(sources:str, source_type:str):
     }
     api_data = {"search": komut1 }
     api_parameters = {
-        "count": 30000,
+        "count": 100000,
         "output_mode": "json"
     }
     res = requests.post(url=url, headers=header, verify=False, params=api_parameters, data=api_data)
@@ -99,7 +99,7 @@ def check_wineventlog(hostnames:str):
     }
     api_data = {"search": komut2 }
     api_parameters = {
-        "count": 30000,
+        "count": 100000,
         "output_mode": "json"
     }
     res = requests.post(url=url, headers=header, verify=False, params=api_parameters, data=api_data)
