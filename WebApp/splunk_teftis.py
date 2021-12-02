@@ -31,7 +31,7 @@ def query(file_name:str,query:str,dates:str):
         header = {"Authorization": api_token} 
         query_new = f"search (earliest=\"{i}:00:00:00\" latest=\"{i}:24:00:00\") " + query
         api_data = {"search": query_new }
-        api_parameters = {"count": 30000,"output_mode": "json"}
+        api_parameters = {"count": 100000,"output_mode": "json"}
         res = requests.post(url=url, headers=header, verify=False, params=api_parameters, data=api_data)
         api_sid = json.loads(res.text)["sid"]
         url3 = json.load(open('config.json'))['splunk_server']+"/services/search/jobs/{}".format(api_sid)
