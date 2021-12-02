@@ -75,4 +75,4 @@ if __name__=="__main__":
 
         app.logger.addHandler(file_handler)
         app.logger.addHandler(mail_handler)
-    app.run(debug=False)
+    app.run(host="0.0.0.0")
